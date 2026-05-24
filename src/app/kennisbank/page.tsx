@@ -2,6 +2,12 @@ import Link from "next/link";
 
 const articles = [
   {
+    title: "Bouwkundige Keuring in de Randstad",
+    summary:
+      "Alles over bouwkundige keuringen in Amsterdam, Den Haag, Rotterdam, Utrecht en alle grote steden in de Randstad. Lokale kennis per stad.",
+    slug: "/bouwkundige-keuring-randstad",
+  },
+  {
     title: "Wat is een bouwkundige keuring?",
     summary:
       "Een bouwkundige keuring is een uitgebreide inspectie van een woning. Leer wat er precies wordt beoordeeld en waarom het belangrijk is.",
@@ -60,16 +66,17 @@ export default function Kennisbank() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {articles.map((article) => (
-              <article
-                key={article.title}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h2 className="text-lg font-bold mb-3">{article.title}</h2>
-                <p className="text-gray-text text-sm mb-4">{article.summary}</p>
-                <span className="text-amber font-semibold text-sm">
-                  Lees meer &rarr;
-                </span>
-              </article>
+              <Link key={article.title} href={article.slug}>
+                <article className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+                  <h2 className="text-lg font-bold mb-3">{article.title}</h2>
+                  <p className="text-gray-text text-sm mb-4">
+                    {article.summary}
+                  </p>
+                  <span className="text-amber font-semibold text-sm">
+                    Lees meer &rarr;
+                  </span>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
